@@ -21,7 +21,7 @@ export class CoinbaseConverter extends AbstractConverter {
         // Parse the CSV and convert to Ghostfolio import format.
         parse(input, {
             delimiter: ",",
-            fromLine: 2,
+            fromLine: 5,
             columns: this.processHeaders(input),
             cast: (columnValue, context) => {
 
