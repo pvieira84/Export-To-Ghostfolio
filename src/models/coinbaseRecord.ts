@@ -10,4 +10,6 @@ export class CoinbaseRecord {
     total: number;
     fees: number;
     notes: string;
+    senderAddress?: string;
+    recipientAddress?: string;
 }

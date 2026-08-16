@@ -39,7 +39,7 @@ chokidar
         const lines = fileContents.split("\n");
 
         // Find the first line that looks like a header (comma or semicolon separated with multiple values).
-        const headerLine = lines.find(line => (line.match(/[,;]/g) || []).length >= 4) || lines[0];
+        const headerLine = lines.find(line => (line.match(/[,;]/g) || []).length >= 3) || lines[0];
         const closestMatch = matcher.closestMatch(headerLine, [...headers.keys()]);
 
         let converterKey = closestMatch as string;

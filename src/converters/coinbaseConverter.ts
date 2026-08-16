@@ -54,7 +54,7 @@ export class CoinbaseConverter extends AbstractConverter {
                     }
 
                     // extract the dnumber from the string
-                    return Math.abs(parseFloat(columnValue.match(/(\d+.\d+)/)[0]));
+                    return Math.abs(parseFloat(columnValue.match(/(\d+(?:\.\d+)?)/)[0]));
                 }
 
                 return columnValue;
@@ -166,6 +166,6 @@ export class CoinbaseConverter extends AbstractConverter {
      */
     public isIgnoredRecord(record: CoinbaseRecord): boolean {
 
-        return ["send", "receive", "convert", "deposit"].some((t) => record.type.toLocaleLowerCase().indexOf(t) > -1);
+        return ["send", "receive", "convert", "deposit", "withdrawal"].some((t) => record.type.toLocaleLowerCase().indexOf(t) > -1);
     }
 }
