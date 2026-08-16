@@ -203,7 +203,7 @@ export class Trading212Converter extends AbstractConverter {
      * @inheritdoc
      */
     public isIgnoredRecord(record: Trading212Record): boolean {
-        let ignoredRecordTypes = ["deposit", "withdraw", "cash", "currency conversion", "transfer out"];
+        let ignoredRecordTypes = ["deposit", "withdraw", "cash", "currency conversion", "transfer out", "interest"];
 
         return ignoredRecordTypes.some(t => record.action.toLocaleLowerCase().indexOf(t) > -1)
     }
