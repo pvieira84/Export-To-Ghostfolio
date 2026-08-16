@@ -97,12 +97,12 @@ export class CoinbaseConverter extends AbstractConverter {
                     }
 
                     // There is no need to query Yahoo Finance for Coinbase exports as the information can be extracted wholly from the export.
-                    let symbol = `${record.asset}-${record.priceCurrency}`;
+                    //let symbol = `${record.asset}-${record.priceCurrency}`;
 
                     // For USD to work, we need to remove the dash.
-                    if (record.priceCurrency.toLocaleUpperCase() === "USD") {
-                        symbol = symbol.replace("-", "");
-                    }
+                    //if (record.priceCurrency.toLocaleUpperCase() === "USD") {
+                    //    symbol = symbol.replace("-", "");
+                    //}
 
                     const date = dayjs(record.timestamp, "YYYY-MM-DD HH:mm:ss");
 
@@ -115,9 +115,9 @@ export class CoinbaseConverter extends AbstractConverter {
                         type: GhostfolioOrderType[record.type],
                         unitPrice: record.price,
                         currency: "EUR",
-                        dataSource: "YAHOO",
+                        dataSource: "COINGECKO",
                         date: date.format("YYYY-MM-DDTHH:mm:ssZ"),
-                        symbol: symbol,
+                        symbol: record.asset,
                         tags: getTags()
                     });
 
