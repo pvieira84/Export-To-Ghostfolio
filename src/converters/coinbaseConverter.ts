@@ -154,7 +154,9 @@ export class CoinbaseConverter extends AbstractConverter {
             "subtotal",
             "total",
             "fees",
-            "notes"];
+            "notes",
+            "senderAddress",
+            "recipientAddress"];
 
         return csvHeaders;
     }
@@ -164,6 +166,6 @@ export class CoinbaseConverter extends AbstractConverter {
      */
     public isIgnoredRecord(record: CoinbaseRecord): boolean {
 
-        return ["send", "receive", "convert"].some((t) => record.type.toLocaleLowerCase().indexOf(t) > -1);
+        return ["send", "receive", "convert", "deposit"].some((t) => record.type.toLocaleLowerCase().indexOf(t) > -1);
     }
 }
